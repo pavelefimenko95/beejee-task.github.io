@@ -1,0 +1,59 @@
+<div class="app-root" ng-controller="AppRootController">
+  <aside class="app-root-aside">
+    <h1>dairy app</h1>
+    <p>Comment with no sense</p>
+  </aside>
+  <div class="main-section">
+    <div class="main-section-wrapper">
+      <div class="items">
+        <div class="items-title">
+          <h1>Items</h1>
+        </div>
+        <div class="items-add">
+          <div class="items-add-input">
+            <input type="text" placeholder="Type name here..." ng-model="newItem.title">
+          </div>
+          <div class="items-add-btn">
+            <button type="button" ng-click="addItem()">Add new</button>
+          </div>
+        </div>
+        <div class="items-list">
+          <div class="item-wrapper" ng-click="selectItem($index)" ng-class="{'item-wrapper-active': $index == selectedItemIndex}" ng-repeat="item in items track by $index">
+            <div class="item-wrapper-border">
+              <div class="item-description">
+                <div class="item-description-text">
+                  {{item.title}}
+                </div>
+                <div class="item-description-comments-count">
+                  {{item.comments.length}}
+                </div>
+              </div>
+              <div class="item-delete-btn">
+                <button type="button" ng-click="removeItem($index)">Delete</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="comments" ng-class="{'comments-show': isShowComments}">
+        <div class="comments-title">
+          <h1>Comments #{{selectedItemIndex + 1}}</h1>
+        </div>
+        <div class="comments-list">
+          <div class="comment-wrapper" ng-repeat="comment in items[selectedItemIndex].comments track by $index">
+            <div class="comment-image"></div>
+            <div class="comment-text">
+              {{comment}}
+            </div>
+          </div>
+        </div>
+        <div class="comments-add">
+          <div class="comments-add-image"></div>
+          <div class="comments-edd-textarea">
+            <textarea ng-keydown="addComment()" ng-model="comment"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

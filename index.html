@@ -1,1 +1,17 @@
-Hello World
+<!DOCTYPE html>
+<html ng-app="angularProject">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Dairy app</title>
+    <link rel="stylesheet" href="./content/css/normalize.min.css">
+    <link rel="stylesheet" href="./content/css/main.css">
+    <script src="./app/libs/angular.js"></script>
+    <script src="./app/libs/angular-animate.min.js"></script>
+    <script src="./app/app.js"></script>
+    <script src="./app/controllers/AppRootController.js"></script>
+  </head>
+  <body>
+    <app-root ng-include="'./app/views/app-root.html'"></app-root>
+  </body>
+</html>
